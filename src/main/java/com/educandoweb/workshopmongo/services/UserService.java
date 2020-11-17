@@ -30,6 +30,10 @@ public class UserService {
 		return repo.insert(obj);
 	}
 	
+	public void delete(String id) {
+		findById(id); //Fazendo pesquisa para verificar se o id existe no banco
+		repo.deleteById(id); // Se passar pelo findById executa a deleção
+	}
 	public User fromDTO(UserDTO objDto) {
 		return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
 	}
