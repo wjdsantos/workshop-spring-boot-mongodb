@@ -24,4 +24,9 @@ public class PostService {
 		Optional<Post> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 	}
+	
+	//Método para buscar um determinado texto no meu titulo
+	public List<Post> findBytitle(String text) {
+		return repo.findByTitleContainingIgnoreCase(text);
+	}
 }
